@@ -11,11 +11,11 @@
         {
             //Extract the values from the HTML inputs by their assigned id and assigns them to variables
             //The value extracted is converted from a string to a float/decimal
-            fIS201 = parseFloat(document.getElementById("txtIS201").value);
-            fACC200 = parseFloat(document.getElementById("txtACC200").value);
-            fIS303= parseFloat(document.getElementById("txtIS303").value);
-            fOverallGPA = parseFloat(document.getElementById("lstGrades").value);
-            fLast30GPA = parseFloat(document.getElementById("lstLast30Grades").value);
+            fIS201 = parseFloat(document.getElementById("lstIS201Grade").value);
+            fACC200 = parseFloat(document.getElementById("lstACC200Grade").value);
+            fIS303= parseFloat(document.getElementById("lstIS303Grade").value);
+            fOverallGPA = parseFloat(document.getElementById("txtOverallGPA").value);
+            fLast30GPA = parseFloat(document.getElementById("txtLast30GPA").value);
             fEssay = parseInt(document.getElementById("lstEssayScore").value);
 
             //calculates new gpa
@@ -33,10 +33,10 @@
         <!--insert html tags --> 
         <!-- Drop Down Lists -->
         <!--Grade Selection-->
-        <p style="font-weight: bolder;">Step 1<p>
+        <p style="font-weight: bolder;">Step 1: Class Grades<p>
             <fieldset style="width: fit-content;">
-                <legend>Overall GPA Input:</legend>
-                <select name="grades" id="lstGrades">
+                <p>ACC 200 Grade Input:</p>
+                <select name="grades" id="lstACC200Grade">
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
                     <option value="3.4">B+</option>
@@ -50,13 +50,27 @@
                     <option value=".7">D-</option>
                     <option value="0">E</option>
                 </select>   
-            </fieldset>
             <br>
         <!--Grade Selection-->
-        <p style="font-weight: bolder;">Step 2<p>
-        <fieldset style="width: fit-content;">
-            <legend>Last 30 Credits GPA Input:</legend>
-            <select name="grades" id="lstLast30Grades">
+            <p>IS 201 Grade Input:</p>
+            <select name="grades" id="lstIS201Grade">
+                <option value="4.0">A</option>
+                <option value="3.7">A-</option>
+                <option value="3.4">B+</option>
+                <option value="3.0">B</option>
+                <option value="2.7">B-</option>
+                <option value="2.4">C+</option>
+                <option value="2.0">C</option>
+                <option value="1.7">C-</option>
+                <option value="1.4">D+</option>
+                <option value="1.0">D</option>
+                <option value=".7">D-</option>
+                <option value="0">E</option>
+            </select>   
+        <br>
+    <!--Grade Selection-->
+            <p>IS 303 Grade Input:</p>
+            <select name="grades" id="lstIS303Grade">
                 <option value="4.0">A</option>
                 <option value="3.7">A-</option>
                 <option value="3.4">B+</option>
@@ -72,7 +86,7 @@
             </select>   
         </fieldset>
         <br>
-        <p style="font-weight: bolder;">Step 3<p>
+        <p style="font-weight: bolder;">Step 2: Essay Score<p>
                 <!--Essay Score Selection-->
                 <fieldset style="width: fit-content;">
                     <legend>Essay Score Input:</legend>
@@ -86,26 +100,22 @@
                 </fieldset>
         <br>
         <!-- Input Grades for Individual Classes -->
-        <p style="font-weight: bolder;">Step 4<p>
+        <p style="font-weight: bolder;">Step 3: GPA Entries<p>
         <fieldset>
-        <!--ACC 200 Text Box-->
-        <label for="txtACC200">ACC 200 Grade: </label>
-            <input type="text" id="txtACC200" value="0.0" title="Enter Your ACC200 Grade">
+        <!--Overall Text Box-->
+        <label for="txtOverallGPA">Overall GPA: </label>
+            <input type="text" id="txtOverallGPA" value="0.0" title="Enter Your Overall GPA">
         <br>
-        <!--IS 201 Text Box-->
-        <label for="txtIS201">IS 201 Grade: </label>
-            <input type="text" id="txtIS201" value="0.0" title="Enter Your IS201 Grade">
-        <br>
-        <!--IS 303 Text Box-->
-        <label for="txtIS303">IS 303 Grade: </label>
-            <input type="text" id="txtIS303" value="0.0" title="Enter Your IS303 Grade">
+        <!--Last 30 Text Box-->
+        <label for="txtLast30GPA">Las 30 Credit GPA: </label>
+            <input type="text" id="txtLast30GPA" value="0.0" title="Enter Your Last 30 Credits GPA">
         </fieldset>
-        <br><br>
+        <br>
 
-        <!-- Form Colculations -->
+        <!-- Form Calculations -->
         <button type="button" name="lblGPACalc" onclick="calcGPA()">Calculate GPA</button>
             <label for="lblGPACalc"></label>    
-            <label id="coreGPA">0.0</label>
+            <label id="coreGPA"></label>
         <!--insert html tag for displaying the calcualted GPA -->
     </fieldset> 
     </form>
