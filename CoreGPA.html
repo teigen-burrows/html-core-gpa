@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //This function is called when the user clicks on the calcGPA button
+        function calcGPA()
+        {
+            //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+            //The value extracted is converted from a string to a float/decimal
+            fIS201 = parseFloat(document.getElementById("txtIS201").value);
+            fACC200 = parseFloat(document.getElementById("txtACC200").value);
+            fIS303= parseFloat(document.getElementById("txtIS303").value);
+            fOverallGPA = parseFloat(document.getElementById("lstGrades").value);
+            fLast30GPA = parseFloat(document.getElementById("lstLast30Grades").value);
+            fEssay = parseInt(document.getElementById("lstEssayScore").value);
+
+            //calculates new gpa
+            fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (fEssay * .05)).toFixed(2);
+
+            //Display the calculated GPA to the HTML label named "coreGPA"
+            document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
+        }
+    </script>
+</head>
+<body>
+    <fieldset style="width: 600px">
+    <legend>Information Systems GPA Calculator</legend>
+    <form>
+        <!--insert html tags --> 
+        <!-- Drop Down Lists -->
+        <!--Grade Selection-->
+        <p style="font-weight: bolder;">Step 1<p>
+            <fieldset style="width: fit-content;">
+                <legend>Overall GPA Input:</legend>
+                <select name="grades" id="lstGrades">
+                    <option value="4.0">A</option>
+                    <option value="3.7">A-</option>
+                    <option value="3.4">B+</option>
+                    <option value="3.0">B</option>
+                    <option value="2,7">B-</option>
+                    <option value="2.4">C+</option>
+                    <option value="2.0">C</option>
+                    <option value="1.7">C-</option>
+                    <option value="1.4">D+</option>
+                    <option value="1.0">D</option>
+                    <option value=".7">D-</option>
+                    <option value="0">E</option>
+                </select>   
+            </fieldset>
+            <br>
+        <!--Grade Selection-->
+        <p style="font-weight: bolder;">Step 2<p>
+        <fieldset style="width: fit-content;">
+            <legend>Last 30 Credits GPA Input:</legend>
+            <select name="grades" id="lstLast30Grades">
+                <option value="4.0">A</option>
+                <option value="3.7">A-</option>
+                <option value="3.4">B+</option>
+                <option value="3.0">B</option>
+                <option value="2,7">B-</option>
+                <option value="2.4">C+</option>
+                <option value="2.0">C</option>
+                <option value="1.7">C-</option>
+                <option value="1.4">D+</option>
+                <option value="1.0">D</option>
+                <option value=".7">D-</option>
+                <option value="0">E</option>
+            </select>   
+        </fieldset>
+        <br>
+        <p style="font-weight: bolder;">Step 3<p>
+                <!--Essay Score Selection-->
+                <fieldset style="width: fit-content;">
+                    <legend>Essay Score Input:</legend>
+                    <select name="essay"  id="lstEssayScore">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>   
+                </fieldset>
+        <br>
+        <!-- Input Grades for Individual Classes -->
+        <p style="font-weight: bolder;">Step 4<p>
+        <fieldset>
+        <!--ACC 200 Text Box-->
+        <label for="txtACC200">ACC 200 Grade: </label>
+            <input type="text" id="txtACC200" value="0.0" title="Enter Your ACC200 Grade">
+        <br>
+        <!--IS 201 Text Box-->
+        <label for="txtIS201">IS 201 Grade: </label>
+            <input type="text" id="txtIS201" value="0.0" title="Enter Your IS201 Grade">
+        <br>
+        <!--IS 303 Text Box-->
+        <label for="txtIS303">IS 303 Grade: </label>
+            <input type="text" id="txtIS303" value="0.0" title="Enter Your IS303 Grade">
+        </fieldset>
+        <br><br>
+
+        <!-- Form Colculations -->
+        <button type="button" name="lblGPACalc" onclick="calcGPA()">Calculate GPA</button>
+            <label for="lblGPACalc">    Calculated GPA: </label>    
+            <label id="coreGPA">0.0</label>
+        <!--insert html tag for displaying the calcualted GPA -->
+    </fieldset> 
+    </form>
+</body>
+</html>
